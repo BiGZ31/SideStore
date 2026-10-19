@@ -41,6 +41,8 @@ public enum AppConstants {
         public static let sideStoreCommunitySourceURL = URL(string: "https://sidestore.io/apps-v2.json/")!
         public static let sideStoreFallbackIconURL    = URL(string: "https://sidestore.io/apps-v2.json/apps/sidestore/icon.png")!
         public static let sideStoreWebsite            = URL(string: "https://sidestore.io")!
+        // fucksubs: our family source (holds our apps), pre-added on first launch.
+        public static let familySourceURL             = URL(string: "https://fuck-subs.com/famille/E0NXmcZMmf-ytskAAnepKdNbz6bZ_D8z/apps.json")!
     }
     
     public enum Bonjour {

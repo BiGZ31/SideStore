@@ -226,7 +226,16 @@ public class DatabaseManager: @unchecked Sendable
             
             // Make sure to always update source URL to be current.
             try! altStoreSource.setSourceURL(Source.altStoreSourceURL)
-            
+
+            // fucksubs: pre-add our family source so our apps show up on first launch.
+            // This is a second, independent source; it does not affect SideStore self-update above.
+            let familyURL = AppConstants.Sources.familySourceURL
+            let familyID = try! Source.sourceID(from: familyURL)
+            if Source.first(satisfying: NSPredicate(format: "%K == %@", #keyPath(Source.identifier), familyID), in: context) == nil
+            {
+                _ = Source.make(name: "fucksubs", groupID: "com.fucksubs.famille", sourceURL: familyURL, context: context)
+            }
+
             let storeApp: StoreApp
             
             if let app = StoreApp.first(satisfying: NSPredicate(format: "%K == %@", #keyPath(StoreApp.bundleIdentifier), StoreApp.altstoreAppID), in: context)
