@@ -198,6 +198,9 @@ private extension SourcesViewController
         // TODO: @mahee96: Need implementation to keep SideStore-Official source always on top
         let fetchRequest = Source.fetchRequest() as NSFetchRequest<Source>
         fetchRequest.returnsObjectsAsFaults = false
+        // fucksubs: hide the SideStore self/community source from the list; it stays in the
+        // database so the app can still refresh itself, it just isn't shown to the user.
+        fetchRequest.predicate = NSPredicate(format: "%K != %@", #keyPath(Source.identifier), Source.altStoreIdentifier)
         fetchRequest.sortDescriptors = [NSSortDescriptor(keyPath: \Source.name, ascending: true),
                                         
                                         // Can't sort by URLs or else app will crash.
