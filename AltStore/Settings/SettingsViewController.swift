@@ -620,7 +620,10 @@ private extension SettingsViewController
         // case .macDirtyCow:
         //     let isHidden = !(UserDefaults.standard.isCowExploitSupported && UserDefaults.standard.isDebugModeEnabled)
         //     return isHidden
-            
+
+        // fucksubs: hide the credits (developers/designers) and the support/patreon sections.
+        case .credits, .patreon: return true
+
         default: return false
         }
     }
