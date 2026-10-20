@@ -529,8 +529,8 @@ private extension AppDelegate
                     }
                     
                     let content = UNMutableNotificationContent()
-                    content.title = NSLocalizedString("New Update Available", comment: "")
-                    content.body = String(format: NSLocalizedString("%@ %@ is now available for download.", comment: ""), update.name, latestSupportedVersion.localizedVersion)
+                    content.title = NSLocalizedString("Mise à jour disponible", comment: "")
+                    content.body = String(format: NSLocalizedString("%@ %@ est disponible au téléchargement.", comment: ""), update.name, latestSupportedVersion.localizedVersion)
                     content.sound = .default
                     
                     let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: nil)
@@ -546,7 +546,7 @@ private extension AppDelegate
                     
                     if let app = newsItem.storeApp
                     {
-                        content.title = String(format: NSLocalizedString("%@ News", comment: ""), app.name)
+                        content.title = String(format: NSLocalizedString("Actus %@", comment: ""), app.name)
                     }
                     else
                     {

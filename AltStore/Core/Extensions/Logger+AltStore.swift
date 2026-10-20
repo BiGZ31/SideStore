@@ -24,11 +24,11 @@ public extension OSLogEntryLog.Level
         {
         case .undefined: return NSLocalizedString("Undefined", comment: "")
         case .debug: return NSLocalizedString("Debug", comment: "")
-        case .info: return NSLocalizedString("Info", comment: "")
-        case .notice: return NSLocalizedString("Notice", comment: "")
-        case .error: return NSLocalizedString("Error", comment: "")
+        case .info: return NSLocalizedString("Infos", comment: "")
+        case .notice: return NSLocalizedString("Avis", comment: "")
+        case .error: return NSLocalizedString("Erreur", comment: "")
         case .fault: return NSLocalizedString("Fault", comment: "")
-        @unknown default: return NSLocalizedString("Unknown", comment: "")
+        @unknown default: return NSLocalizedString("Inconnu", comment: "")
         }
     }
 }

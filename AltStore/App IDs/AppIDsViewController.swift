@@ -121,7 +121,7 @@ private extension AppIDsViewController
                 formatter.maximumUnitCount = 1
 
                 let timeInterval = formatter.string(from: currentDate, to: expirationDate)
-                let timeIntervalText = timeInterval ?? NSLocalizedString("Unknown", comment: "")
+                let timeIntervalText = timeInterval ?? NSLocalizedString("Inconnu", comment: "")
                 cell.bannerView.button.setTitle(timeIntervalText.uppercased(), for: .normal)
                 
                 attributedAccessibilityLabel.mutableString.append(timeIntervalText)

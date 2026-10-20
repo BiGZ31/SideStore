@@ -116,7 +116,7 @@ private struct WelcomeStep: View {
                 .onAppear { isBreathing = true }
 
             VStack(spacing: 8) {
-                Text(NSLocalizedString("Welcome to fucksubsStore", comment: ""))
+                Text(NSLocalizedString("Bienvenue sur fucksubsStore", comment: ""))
                     .font(.system(size: 28, weight: .bold))
                     .multilineTextAlignment(.center)
 
@@ -159,7 +159,7 @@ private struct WelcomeStep: View {
             Spacer()
 
             SwiftUI.Button(action: onNext) {
-                Text(NSLocalizedString("Get Started", comment: ""))
+                Text(NSLocalizedString("Commencer", comment: ""))
                     .font(.headline)
                     .foregroundColor(.white)
                     .frame(maxWidth: .infinity)
@@ -211,7 +211,7 @@ private struct PairingFileStep: View {
                 .animation(.easeInOut, value: hasPairingFile)
 
             VStack(spacing: 8) {
-                Text(NSLocalizedString("Pairing File", comment: ""))
+                Text(NSLocalizedString("Fichier de jumelage", comment: ""))
                     .font(.system(size: 28, weight: .bold))
 
                 Text(String(
@@ -241,8 +241,8 @@ private struct PairingFileStep: View {
                         HStack(spacing: 8) {
                             Image(systemName: "square.and.arrow.down")
                             Text(hasPairingFile
-                                ? NSLocalizedString("Choose Different File", comment: "")
-                                : NSLocalizedString("Select Pairing File", comment: ""))
+                                ? NSLocalizedString("Choisir un autre fichier", comment: "")
+                                : NSLocalizedString("Choisir le fichier de jumelage", comment: ""))
                         }
                         .font(.headline)
                         .foregroundColor(.accentColor)
@@ -255,7 +255,7 @@ private struct PairingFileStep: View {
                     SwiftUI.Button(action: {
                         UIApplication.shared.open(AppConstants.URLs.pairingDocumentation)
                     }) {
-                        Text(NSLocalizedString("How do I get a pairing file?", comment: ""))
+                        Text(NSLocalizedString("Comment obtenir un fichier de jumelage ?", comment: ""))
                             .font(.footnote)
                             .foregroundColor(.accentColor)
                     }
@@ -276,7 +276,7 @@ private struct PairingFileStep: View {
 
             VStack(spacing: 12) {
                 SwiftUI.Button(action: onNext) {
-                    Text(NSLocalizedString("Continue", comment: ""))
+                    Text(NSLocalizedString("Continuer", comment: ""))
                         .font(.headline)
                         .foregroundColor(.white)
                         .frame(maxWidth: .infinity)
@@ -288,7 +288,7 @@ private struct PairingFileStep: View {
 
                 if !hasPairingFile {
                     SwiftUI.Button(action: onNext) {
-                        Text(NSLocalizedString("Set Up Later", comment: ""))
+                        Text(NSLocalizedString("Configurer plus tard", comment: ""))
                             .font(.footnote)
                             .foregroundColor(.secondary)
                     }
@@ -443,7 +443,7 @@ private struct LocalDevVPNStep: View {
 
             VStack(spacing: 12) {
                 SwiftUI.Button(action: onNext) {
-                    Text(NSLocalizedString("Continue", comment: ""))
+                    Text(NSLocalizedString("Continuer", comment: ""))
                         .font(.headline)
                         .foregroundColor(.white)
                         .frame(maxWidth: .infinity)
@@ -454,7 +454,7 @@ private struct LocalDevVPNStep: View {
                 .disabled(!isConnected)
 
                 SwiftUI.Button(action: onNext) {
-                    Text(NSLocalizedString("Set Up Later", comment: ""))
+                    Text(NSLocalizedString("Configurer plus tard", comment: ""))
                         .font(.footnote)
                         .foregroundColor(.secondary)
                 }
@@ -543,10 +543,10 @@ private struct AppleIDStep: View {
                 .animation(.easeInOut, value: isAuthenticated)
 
             VStack(spacing: 8) {
-                Text(NSLocalizedString("Apple ID", comment: ""))
+                Text(NSLocalizedString("Identifiant Apple", comment: ""))
                     .font(.system(size: 28, weight: .bold))
 
-                Text(NSLocalizedString("fucksubsStore requires an Apple ID to create development certificates and provisioning profiles for signing apps.", comment: ""))
+                Text(NSLocalizedString("fucksubsStore a besoin d'un identifiant Apple pour créer les certificats et profils nécessaires à la signature des apps.", comment: ""))
                     .font(.subheadline)
                     .foregroundColor(.secondary)
                     .multilineTextAlignment(.center)
@@ -557,7 +557,7 @@ private struct AppleIDStep: View {
                 HStack(spacing: 8) {
                     Image(systemName: "checkmark.circle.fill")
                         .foregroundColor(.green)
-                    Text(AuthManager.shared.currentAppleID ?? NSLocalizedString("Signed in", comment: ""))
+                    Text(AuthManager.shared.currentAppleID ?? NSLocalizedString("Connecté", comment: ""))
                         .font(.footnote)
                         .foregroundColor(.secondary)
                 }
@@ -592,7 +592,7 @@ private struct AppleIDStep: View {
                         } else {
                             Image(systemName: "key.fill")
                         }
-                        Text(NSLocalizedString("Sign In with Apple ID", comment: ""))
+                        Text(NSLocalizedString("Se connecter avec l'identifiant Apple", comment: ""))
                     }
                     .font(.headline)
                     .foregroundColor(.white)
@@ -618,7 +618,7 @@ private struct AppleIDStep: View {
 
             VStack(spacing: 12) {
                 SwiftUI.Button(action: onNext) {
-                    Text(NSLocalizedString("Continue", comment: ""))
+                    Text(NSLocalizedString("Continuer", comment: ""))
                         .font(.headline)
                         .foregroundColor(.white)
                         .frame(maxWidth: .infinity)
@@ -629,7 +629,7 @@ private struct AppleIDStep: View {
                 .disabled(!isAuthenticated && !isSigningIn)
 
                 SwiftUI.Button(action: onNext) {
-                    Text(NSLocalizedString("Set Up Later", comment: ""))
+                    Text(NSLocalizedString("Configurer plus tard", comment: ""))
                         .font(.footnote)
                         .foregroundColor(.secondary)
                 }
@@ -665,12 +665,12 @@ private struct CompleteStep: View {
 
             VStack(spacing: 8) {
                 Text(hasPairingFile
-                    ? NSLocalizedString("You're All Set!", comment: "")
+                    ? NSLocalizedString("Tout est prêt !", comment: "")
                     : NSLocalizedString("Setup Incomplete", comment: ""))
                     .font(.system(size: 28, weight: .bold))
 
                 Text(hasPairingFile
-                    ? NSLocalizedString("fucksubsStore setup is complete. You can now install and refresh apps.", comment: "")
+                    ? NSLocalizedString("La configuration de fucksubsStore est terminée. Tu peux maintenant installer et actualiser des apps.", comment: "")
                     : NSLocalizedString("You can enter fucksubsStore, but a pairing file is required before you can install or refresh apps.", comment: ""))
                     .font(.subheadline)
                     .foregroundColor(.secondary)
@@ -680,7 +680,7 @@ private struct CompleteStep: View {
 
             VStack(spacing: 12) {
                 summaryRow(
-                    title: NSLocalizedString("Pairing File", comment: ""),
+                    title: NSLocalizedString("Fichier de jumelage", comment: ""),
                     isConfigured: hasPairingFile,
                     warning: NSLocalizedString("Required before installing or refreshing apps", comment: "")
                 )
@@ -688,7 +688,7 @@ private struct CompleteStep: View {
                 Divider()
 
                 summaryRow(
-                    title: NSLocalizedString("Apple ID", comment: ""),
+                    title: NSLocalizedString("Identifiant Apple", comment: ""),
                     isConfigured: isAuthenticated,
                     warning: NSLocalizedString("Can be added anytime in Settings", comment: "")
                 )
@@ -732,7 +732,7 @@ private struct CompleteStep: View {
                         .font(.caption)
                         .foregroundColor(.green)
                 } else {
-                    Text(NSLocalizedString("Not Configured", comment: ""))
+                    Text(NSLocalizedString("Non configuré", comment: ""))
                         .font(.caption)
                         .fontWeight(.medium)
                         .foregroundColor(.orange)

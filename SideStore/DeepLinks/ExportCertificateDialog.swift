@@ -21,7 +21,7 @@ public enum ExportCertificateDialog {
             preferredStyle: .alert
         )
         
-        let exportAction = UIAlertAction(title: NSLocalizedString("Export", comment: ""), style: .default) { _ in
+        let exportAction = UIAlertAction(title: NSLocalizedString("Exporter", comment: ""), style: .default) { _ in
             guard callbackTemplate.contains("$(BASE64_CERT)") else {
                 let toast = ToastView(text: NSLocalizedString("No $(BASE64_CERT) placeholder found", comment: ""), detailText: nil)
                 toast.show(in: presentingVC)
@@ -49,7 +49,7 @@ public enum ExportCertificateDialog {
         }
         
         alert.addAction(exportAction)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Annuler", comment: ""), style: .cancel))
         
         presentingVC.present(alert, animated: true)
     }

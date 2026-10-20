@@ -60,7 +60,7 @@ final class PipelineHandler: PipelineExecutionHandler,
             alertController.addAction(UIAlertAction(title: UIAlertAction.cancel.title, style: UIAlertAction.cancel.style) { _ in
                 continuation.resume(returning: false)
             })
-            alertController.addAction(UIAlertAction(title: NSLocalizedString("Proceed", comment: ""), style: .default) { _ in
+            alertController.addAction(UIAlertAction(title: NSLocalizedString("Continuer", comment: ""), style: .default) { _ in
                 continuation.resume(returning: true)
             })
             presenter.present(alertController, animated: true)
@@ -187,7 +187,7 @@ final class PipelineHandler: PipelineExecutionHandler,
                     """,
                     preferredStyle: .alert
                 )
-                alert.addAction(UIAlertAction(title: NSLocalizedString("Continue", comment: ""), style: .default, handler: { _ in
+                alert.addAction(UIAlertAction(title: NSLocalizedString("Continuer", comment: ""), style: .default, handler: { _ in
                     continuation.resume()
                 }))
                 
@@ -432,7 +432,7 @@ final class PipelineHandler: PipelineExecutionHandler,
         }
         
         return await withCheckedContinuation { continuation in
-            let okAction = UIAlertAction(title: NSLocalizedString("Confirm", comment: ""), style: .default) { _ in
+            let okAction = UIAlertAction(title: NSLocalizedString("Confirmer", comment: ""), style: .default) { _ in
                 let baseID = checkboxView.cleanBaseID()
                 let customID = InfoPlistParser.sanitizeBundleID(!baseID.isEmpty ? baseID : cleanInitialID)
                 let appendTeamID = checkboxView.isChecked
@@ -440,7 +440,7 @@ final class PipelineHandler: PipelineExecutionHandler,
                 continuation.resume(returning: (customID, appendTeamID))
             }
             
-            let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { _ in
+            let cancelAction = UIAlertAction(title: NSLocalizedString("Annuler", comment: ""), style: .cancel) { _ in
                 continuation.resume(returning: nil)
             }
             alert.addAction(cancelAction)
@@ -490,7 +490,7 @@ final class PipelineHandler: PipelineExecutionHandler,
 
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
 
-            alert.addAction(UIAlertAction(title: NSLocalizedString("Choose from Photos", comment: ""), style: .default) { _ in
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Choisir dans Photos", comment: ""), style: .default) { _ in
                 #if !os(tvOS)
                 let pickerDelegate = ImagePickerDelegateHandler { image in
                     guard let image = image,

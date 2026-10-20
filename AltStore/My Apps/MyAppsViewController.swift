@@ -413,7 +413,7 @@ private extension MyAppsViewController
             
             if ReleaseTrackType.betaTracks.contains(latestSupportedVersion.channel)
             {
-                appName = String(format: NSLocalizedString("%@ beta", comment: ""), app.name)
+                appName = String(format: NSLocalizedString("%@ bêta", comment: ""), app.name)
             }
             else
             {
@@ -424,7 +424,7 @@ private extension MyAppsViewController
             cell.bannerView.accessibilityLabel = String(format: NSLocalizedString("%@ %@ update. Released on %@.", comment: ""), appName, latestSupportedVersion.localizedVersion, versionDate)
             
             cell.bannerView.button.addTarget(self, action: #selector(MyAppsViewController.updateApp(_:)), for: .primaryActionTriggered)
-            cell.bannerView.button.accessibilityLabel = String(format: NSLocalizedString("Update %@", comment: ""), installedApp.name)
+            cell.bannerView.button.accessibilityLabel = String(format: NSLocalizedString("Mettre à jour %@", comment: ""), installedApp.name)
             
             if self.expandedAppUpdates.contains(app.bundleIdentifier)
             {
@@ -1407,10 +1407,10 @@ private extension MyAppsViewController
         
         alertController.setValue(contentVC, forKey: "contentViewController")
         
-        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: NSLocalizedString("Annuler", comment: ""), style: .cancel, handler: nil)
         
         let actionTitleForState: (Bool) -> String = { isChecked in
-            isChecked ? NSLocalizedString("Delete", comment: "") : NSLocalizedString("Remove", comment: "")
+            isChecked ? NSLocalizedString("Delete", comment: "") : NSLocalizedString("Supprimer", comment: "")
         }
         
         let confirmAction = UIAlertAction(title: actionTitleForState(contentVC.isChecked), style: .destructive) { [weak self] _ in
@@ -1488,7 +1488,7 @@ private extension MyAppsViewController
 
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertController.addAction(.cancel)
-        alertController.addAction(UIAlertAction(title: NSLocalizedString("Remove", comment: ""), style: .destructive, handler: { (action) in
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("Supprimer", comment: ""), style: .destructive, handler: { (action) in
             AppManager.shared.removeDeactivatedApp(installedApp) { (result) in
                 switch result
                 {
@@ -2066,7 +2066,7 @@ extension MyAppsViewController
     {
         var actions = [UIMenuElement]()
         
-        let openAction = UIAction(title: NSLocalizedString("Open", comment: ""), image: UIImage(systemName: "arrow.up.forward.app")) { (action) in
+        let openAction = UIAction(title: NSLocalizedString("Ouvrir", comment: ""), image: UIImage(systemName: "arrow.up.forward.app")) { (action) in
             self.open(installedApp)
         }
         
@@ -2106,7 +2106,7 @@ extension MyAppsViewController
             self.deleteApp(installedApp)
         }
         
-        let removeAction = UIAction(title: NSLocalizedString("Remove", comment: ""), image: UIImage(systemName: "trash"), attributes: .destructive) { (action) in
+        let removeAction = UIAction(title: NSLocalizedString("Supprimer", comment: ""), image: UIImage(systemName: "trash"), attributes: .destructive) { (action) in
             self.remove(installedApp)
         }
         
@@ -2158,7 +2158,7 @@ extension MyAppsViewController
             self.changeIcon(for: installedApp, to: nil)
         }
         
-        let infoAction = UIAction(title: NSLocalizedString("Info", comment: ""), image: UIImage(systemName: "info.circle")) { [weak self] (action) in
+        let infoAction = UIAction(title: NSLocalizedString("Infos", comment: ""), image: UIImage(systemName: "info.circle")) { [weak self] (action) in
             self?.showAppInfo(installedApp)
         }
         

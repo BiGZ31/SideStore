@@ -55,7 +55,7 @@ struct ProcessError: ALTLocalizedError
         switch self.code
         {
         case .failed:
-            guard let exitCode else { return String(format: NSLocalizedString("%@ failed.", comment: ""), self.processName) }
+            guard let exitCode else { return String(format: NSLocalizedString("%@ a échoué.", comment: ""), self.processName) }
             
             let baseMessage = String(format: NSLocalizedString("%@ failed with code %@.", comment: ""), self.processName, NSNumber(value: exitCode))
             guard let lastLine = self.lastOutputLine else { return baseMessage }
@@ -63,8 +63,8 @@ struct ProcessError: ALTLocalizedError
             let failureReason = baseMessage + " " + lastLine
             return failureReason
             
-        case .timedOut: return String(format: NSLocalizedString("%@ timed out.", comment: ""), self.processName)
-        case .terminated: return String(format: NSLocalizedString("%@ unexpectedly quit.", comment: ""), self.processName)
+        case .timedOut: return String(format: NSLocalizedString("%@ a expiré.", comment: ""), self.processName)
+        case .terminated: return String(format: NSLocalizedString("%@ a quitté de façon inattendue.", comment: ""), self.processName)
         case .unexpectedOutput:
             let baseMessage = String(format: NSLocalizedString("%@ returned unexpected output.", comment: ""), self.processName)
             guard let lastLine = self.lastOutputLine else { return baseMessage }

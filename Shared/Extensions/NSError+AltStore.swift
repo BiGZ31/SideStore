@@ -168,7 +168,7 @@ public extension NSError
             {
             case NSDebugDescriptionErrorKey: keyName = NSLocalizedString("Debug Description", comment: "")
             case NSLocalizedDescriptionKey: keyName = NSLocalizedString("Error Description", comment: "")
-            case NSLocalizedFailureErrorKey: keyName = NSLocalizedString("Failure", comment: "")
+            case NSLocalizedFailureErrorKey: keyName = NSLocalizedString("Échec", comment: "")
             case NSLocalizedFailureReasonErrorKey: keyName = NSLocalizedString("Failure Reason", comment: "")
             case NSLocalizedRecoverySuggestionErrorKey: keyName = NSLocalizedString("Recovery Suggestion", comment: "")
             case ALTLocalizedTitleErrorKey: keyName = NSLocalizedString("Title", comment: "")

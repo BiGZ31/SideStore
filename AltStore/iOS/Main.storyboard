@@ -67,7 +67,7 @@
                             <outlet property="delegate" destination="e3L-BF-iXp" id="Mdp-x4-hZe"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Browse" id="pUx-6k-rtr"/>
+                    <navigationItem key="navigationItem" title="Parcourir" id="pUx-6k-rtr"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cMN-i4-Bxk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -319,7 +319,7 @@
                                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="PFD-gZ-77F">
                                                                     <rect key="frame" x="0.0" y="0.0" width="335" height="26.5"/>
                                                                     <subviews>
-                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="What's New" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="obM-TM-y2E">
+                                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Nouveautés" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="obM-TM-y2E">
                                                                             <rect key="frame" x="0.0" y="0.0" width="124" height="26.5"/>
                                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                                                             <nil key="textColor"/>
@@ -382,7 +382,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" distribution="equalSpacing" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Jvb-r8-XrY">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Permissions" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dj7-G8-GFv">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="Autorisations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dj7-G8-GFv">
                                                             <rect key="frame" x="20" y="0.0" width="335" height="26.5"/>
                                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                                             <nil key="textColor"/>
@@ -489,7 +489,7 @@
         <scene sceneID="KlD-j0-ROn">
             <objects>
                 <viewControllerPlaceholder storyboardName="Settings" id="p3d-dP-Swg" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" image="Settings" id="OZm-Le-7oJ"/>
+                    <tabBarItem key="tabBarItem" title="Réglages" image="Settings" id="OZm-Le-7oJ"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HgE-PD-dC2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -515,7 +515,7 @@
                             <outlet property="delegate" destination="3sa-FZ-PTg" id="9fB-sR-8Xt"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="News" id="ZxL-Ws-lJO"/>
+                    <navigationItem key="navigationItem" title="Actus" id="ZxL-Ws-lJO"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YS7-2X-joz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -525,7 +525,7 @@
         <scene sceneID="VHa-uP-bFU">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="faz-B4-Sub" customClass="ForwardingNavigationController" customModule="SideStore" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Browse" image="Browse" id="Uwh-Bg-Ymq"/>
+                    <tabBarItem key="tabBarItem" title="Parcourir" image="Browse" id="Uwh-Bg-Ymq"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="dIv-qd-9L5" customClass="NavigationBar" customModule="SideStore" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="20" width="375" height="96"/>
@@ -546,7 +546,7 @@
         <scene sceneID="nhh-BJ-XiT">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="3Ew-ox-i4n" customClass="ForwardingNavigationController" customModule="SideStore" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="My Apps" image="MyApps" id="4gT-9u-k7y">
+                    <tabBarItem key="tabBarItem" title="Mes apps" image="MyApps" id="4gT-9u-k7y">
                         <color key="badgeColor" name="Primary"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -624,7 +624,7 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="359" height="60"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Updates Available" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z04-yg-x1t">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Aucune mise à jour" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z04-yg-x1t">
                                                                     <rect key="frame" x="96.5" y="20" width="166" height="20.5"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                                                     <color key="textColor" name="Primary"/>
@@ -691,7 +691,7 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NHb-0F-cHZ">
                                             <rect key="frame" x="0.0" y="20.5" width="97" height="32"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                            <state key="normal" title="View App IDs"/>
+                                            <state key="normal" title="Voir les App IDs"/>
                                             <connections>
                                                 <segue destination="IXk-qg-mFJ" kind="presentation" identifier="showAppIDs" id="yZB-Fh-cTL"/>
                                             </connections>
@@ -714,7 +714,7 @@
                             <outlet property="delegate" destination="hv7-Ar-voT" id="1PN-pf-cZK"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="My Apps" id="zLJ-Cg-ijh">
+                    <navigationItem key="navigationItem" title="Mes apps" id="zLJ-Cg-ijh">
                         <barButtonItem key="leftBarButtonItem" systemItem="add" id="4MN-JN-Knh">
                             <connections>
                                 <action selector="sideloadApp:" destination="hv7-Ar-voT" id="Tjv-oi-2H0"/>
@@ -882,7 +882,7 @@
         <scene sceneID="BV8-6J-nIv">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="kjR-gi-fgT" customClass="ForwardingNavigationController" customModule="SideStore" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="News" image="News" id="fVN-ed-uO1"/>
+                    <tabBarItem key="tabBarItem" title="Actus" image="News" id="fVN-ed-uO1"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="525-jF-uDK" customClass="NavigationBar" customModule="SideStore" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="20" width="375" height="96"/>

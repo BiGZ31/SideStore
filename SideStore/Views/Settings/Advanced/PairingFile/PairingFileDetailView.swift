@@ -250,15 +250,15 @@ struct PairingFileDetailView: View {
         }
 
         let alert = UIAlertController(
-            title: NSLocalizedString("Warning", comment: ""),
+            title: NSLocalizedString("Avertissement", comment: ""),
             message: NSLocalizedString("Editing manually may corrupt the pairing file. Are you sure you know what you are doing and want to continue?", comment: ""),
             preferredStyle: .alert
         )
         let contentVC = PairingFileEditAlertViewController()
         alert.setValue(contentVC, forKey: "contentViewController")
 
-        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil)
-        let continueAction = UIAlertAction(title: NSLocalizedString("Continue", comment: ""), style: .destructive) { _ in
+        let cancelAction = UIAlertAction(title: NSLocalizedString("Annuler", comment: ""), style: .cancel, handler: nil)
+        let continueAction = UIAlertAction(title: NSLocalizedString("Continuer", comment: ""), style: .destructive) { _ in
             if contentVC.isChecked {
                 UserDefaults.standard.setPairingFileEditSuppressed(true, forHash: currentHash)
             }

@@ -71,7 +71,7 @@ final class SourcesViewController: UICollectionViewController
         
         self.placeholderView = PlaceholderView(frame: .zero)
         self.placeholderView.translatesAutoresizingMaskIntoConstraints = false
-        self.placeholderView.textLabel.text = NSLocalizedString("Add More Sources!", comment: "")
+        self.placeholderView.textLabel.text = NSLocalizedString("Ajouter d'autres sources !", comment: "")
         self.placeholderView.detailTextLabel.text = NSLocalizedString("Sources determine what apps are available in fucksubsStore. The more sources you add, the better your fucksubsStore experience will be.\n\nDon’t know where to start? Try adding one of our Recommended Sources!", comment: "")
         self.placeholderView.detailTextLabel.textAlignment = .natural
         backgroundView.addSubview(self.placeholderView)
@@ -81,7 +81,7 @@ final class SourcesViewController: UICollectionViewController
         self.placeholderView.detailTextLabel.font = UIFont.preferredFont(forTextStyle: .body)
         self.placeholderView.detailTextLabel.textAlignment = .natural
         
-        self.placeholderViewButton = UIButton(type: .system, primaryAction: UIAction(title: NSLocalizedString("View Recommended Sources", comment: "")) { [weak self] _ in
+        self.placeholderViewButton = UIButton(type: .system, primaryAction: UIAction(title: NSLocalizedString("Voir les sources recommandées", comment: "")) { [weak self] _ in
             self?.performSegue(withIdentifier: "addSource", sender: nil)
         })
         self.placeholderViewButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body)
@@ -161,7 +161,7 @@ private extension SourcesViewController
                 // Prevent users from removing AltStore source.
                 
                 let removeAction = UIContextualAction(style: .destructive,
-                                                      title: NSLocalizedString("Remove", comment: "")) { _, _, completion in
+                                                      title: NSLocalizedString("Supprimer", comment: "")) { _, _, completion in
                     self.remove(source, completionHandler: completion)
                 }
                 removeAction.image = UIImage(systemName: "trash.fill")
@@ -172,7 +172,7 @@ private extension SourcesViewController
             if let error = source.error
             {
                 let viewErrorAction = UIContextualAction(style: .normal,
-                                                         title: NSLocalizedString("View Error", comment: "")) { _, _, completion in
+                                                         title: NSLocalizedString("Voir l'erreur", comment: "")) { _, _, completion in
                     self.present(error)
                     completion(true)
                 }
@@ -278,10 +278,10 @@ private extension SourcesViewController
             }
             else
             {
-                dateText = NSLocalizedString("Never", comment: "")
+                dateText = NSLocalizedString("Jamais", comment: "")
             }
                             
-            let text = String(format: NSLocalizedString("Last Updated: %@", comment: ""), dateText)
+            let text = String(format: NSLocalizedString("Dernière mise à jour : %@", comment: ""), dateText)
             cell.bannerView.subtitleLabel.text = text
             cell.bannerView.subtitleLabel.numberOfLines = 1
             
@@ -452,7 +452,7 @@ private extension SourcesViewController
         guard let app = notification.object as? StoreApp else { return }
         self._installingApp = app
         
-        let text = String(format: NSLocalizedString("Downloading %@…", comment: ""), app.name)        
+        let text = String(format: NSLocalizedString("Téléchargement de %@…", comment: ""), app.name)        
         let toastView = ToastView(text: text, detailText: NSLocalizedString("Tap to view progress.", comment: ""))
         toastView.addTarget(self, action: #selector(SourcesViewController.showAppDetail), for: .touchUpInside)
         toastView.show(in: self)

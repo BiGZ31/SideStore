@@ -254,7 +254,7 @@ final class SignableCertificatesListViewController: UITableViewController {
                 self?.onSelectCertificate?(cert)
             }
         }
-        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel)
+        let cancelAction = UIAlertAction(title: NSLocalizedString("Annuler", comment: ""), style: .cancel)
         
         confirmAlert.addAction(cancelAction)
         confirmAlert.addAction(setAction)

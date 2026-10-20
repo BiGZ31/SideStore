@@ -183,7 +183,7 @@ private extension AuthenticationViewController
             case .failure(let error as NSError):
                 debugLog("AuthenticationViewController: Authentication failed with error: \(error)")
                 DispatchQueue.main.async {
-                    let error = error.withLocalizedTitle(NSLocalizedString("Failed to Sign In", comment: ""))
+                    let error = error.withLocalizedTitle(NSLocalizedString("Échec de la connexion", comment: ""))
                     let toastView = ToastView(error: error)
                     toastView.show(in: self)
                     toastView.backgroundColor = .white
@@ -197,7 +197,7 @@ private extension AuthenticationViewController
             case .success((let account, let session)):
                 DispatchQueue.main.async {
                     UIView.performWithoutAnimation {
-                        let title = NSLocalizedString("Authenticated", comment: "")
+                        let title = NSLocalizedString("Authentifié", comment: "")
                         let image = UIImage(systemName: "checkmark.circle.fill")
                         self.signInButton.setTitle(title, for: .normal)
                         self.signInButton.setImage(image, for: .normal)

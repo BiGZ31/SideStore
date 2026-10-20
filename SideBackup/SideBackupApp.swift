@@ -236,7 +236,7 @@ class AppState: ObservableObject {
     private func backup(skipNonCopyable: Bool = false) async {
         if let error = self.bootCheckError ?? ConsoleLog.bootCheckError {
             let appName = Bundle.main.appName ?? NSLocalizedString("App", comment: "")
-            let title = String(format: NSLocalizedString("%@ could not be backed up.", comment: ""), appName)
+            let title = String(format: NSLocalizedString("Impossible de sauvegarder %@.", comment: ""), appName)
             self.process(.failure(error), errorTitle: title)
             return
         }
@@ -254,7 +254,7 @@ class AppState: ObservableObject {
             }
             self.process(.success(()), errorTitle: "")
         } catch {
-            let title = String(format: NSLocalizedString("%@ could not be backed up.", comment: ""), appName)
+            let title = String(format: NSLocalizedString("Impossible de sauvegarder %@.", comment: ""), appName)
             self.process(.failure(error), errorTitle: title)
         }
     }
@@ -262,7 +262,7 @@ class AppState: ObservableObject {
     private func restore(skipNonCopyable: Bool = false) async {
         if let error = self.bootCheckError ?? ConsoleLog.bootCheckError {
             let appName = Bundle.main.appName ?? NSLocalizedString("App", comment: "")
-            let title = String(format: NSLocalizedString("%@ could not be restored.", comment: ""), appName)
+            let title = String(format: NSLocalizedString("Impossible de restaurer %@.", comment: ""), appName)
             self.process(.failure(error), errorTitle: title)
             return
         }
@@ -280,7 +280,7 @@ class AppState: ObservableObject {
             }
             self.process(.success(()), errorTitle: "")
         } catch {
-            let title = String(format: NSLocalizedString("%@ could not be restored.", comment: ""), appName)
+            let title = String(format: NSLocalizedString("Impossible de restaurer %@.", comment: ""), appName)
             self.process(.failure(error), errorTitle: title)
         }
     }

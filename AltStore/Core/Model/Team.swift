@@ -20,7 +20,7 @@ public extension ALTTeamType
         case .individual: return NSLocalizedString("Developer", comment: "")
         case .organization: return NSLocalizedString("Organization", comment: "")
         case .unknown: fallthrough
-        @unknown default: return NSLocalizedString("Unknown", comment: "")
+        @unknown default: return NSLocalizedString("Inconnu", comment: "")
         }
     }
 }

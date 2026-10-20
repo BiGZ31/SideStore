@@ -126,7 +126,7 @@ struct SourceError: ALTLocalizedError
                 return String(format: NSLocalizedString("A permission for %@ is missing a usage description.", comment: ""), appName)
             }
             
-            let permissionType = permission.type.localizedName ?? NSLocalizedString("Permission", comment: "")
+            let permissionType = permission.type.localizedName ?? NSLocalizedString("Autorisation", comment: "")
             let failureReason = String(format: NSLocalizedString("The %@ '%@' for %@ is missing a usage description.", comment: ""), permissionType.lowercased(), permission.rawValue, appName)
             return failureReason
             

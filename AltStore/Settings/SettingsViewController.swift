@@ -503,11 +503,11 @@ private extension SettingsViewController
         case .signIn:
             if isHeader
             {
-                settingsHeaderFooterView.primaryLabel.text = NSLocalizedString("ACCOUNT", comment: "")
+                settingsHeaderFooterView.primaryLabel.text = NSLocalizedString("COMPTE", comment: "")
             }
             else
             {
-                settingsHeaderFooterView.secondaryLabel.text = NSLocalizedString("Sign in with your Apple ID to download apps from fucksubsStore.", comment: "")
+                settingsHeaderFooterView.secondaryLabel.text = NSLocalizedString("Connecte-toi avec ton identifiant Apple pour télécharger les apps de fucksubsStore.", comment: "")
             }
             
         case .patreon:
@@ -521,7 +521,7 @@ private extension SettingsViewController
             }
 
         case .account:
-            settingsHeaderFooterView.primaryLabel.text = NSLocalizedString("ACCOUNT", comment: "")
+            settingsHeaderFooterView.primaryLabel.text = NSLocalizedString("COMPTE", comment: "")
             
             settingsHeaderFooterView.button.setTitle(NSLocalizedString("SIGN OUT", comment: ""), for: .normal)
             settingsHeaderFooterView.button.addTarget(self, action: #selector(SettingsViewController.signOut(_:)), for: .primaryActionTriggered)
@@ -565,7 +565,7 @@ private extension SettingsViewController
             settingsHeaderFooterView.primaryLabel.text = NSLocalizedString("CREDITS", comment: "")
             
         case .advancedSettings:
-            settingsHeaderFooterView.primaryLabel.text = NSLocalizedString("ADVANCED SETTINGS", comment: "")
+            settingsHeaderFooterView.primaryLabel.text = NSLocalizedString("RÉGLAGES AVANCÉS", comment: "")
 
         case .betaTesting:
             if isHeader
@@ -655,16 +655,16 @@ private extension SettingsViewController
         let contentVC = SignOutAlertViewController()
         
         let alertController = UIAlertController(
-            title: NSLocalizedString("Sign Out", comment: ""),
+            title: NSLocalizedString("Se déconnecter", comment: ""),
             message: NSLocalizedString("Are you sure you want to sign out? You will no longer be able to install or refresh apps once you sign out.", comment: ""),
             preferredStyle: .alert
         )
         
         alertController.setValue(contentVC, forKey: "contentViewController")
         
-        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: NSLocalizedString("Annuler", comment: ""), style: .cancel, handler: nil)
         
-        let signOutAction = UIAlertAction(title: NSLocalizedString("Sign Out", comment: ""), style: .destructive) { [weak self] _ in
+        let signOutAction = UIAlertAction(title: NSLocalizedString("Se déconnecter", comment: ""), style: .destructive) { [weak self] _ in
             let keepCert = contentVC.isChecked
             let keepAnisette = contentVC.isKeepAnisetteChecked
             let keepAnisetteHeaders = contentVC.isKeepAnisetteHeadersChecked
@@ -795,13 +795,13 @@ private extension SettingsViewController
         let makeCacheTitle: (String) -> String = { sizeString in
             String(format: NSLocalizedString("Are you sure you want to clear fucksubsStore's cache?\n\nCache Size: %@", comment: ""), sizeString)
         }
-        let alertController = UIAlertController(title: makeCacheTitle(NSLocalizedString("Calculating…", comment: "")),
+        let alertController = UIAlertController(title: makeCacheTitle(NSLocalizedString("Calcul…", comment: "")),
                                                 message: NSLocalizedString("This will remove all temporary files as well as backups for uninstalled apps.", comment: ""),
                                                 preferredStyle: .actionSheet)
         alertController.addAction(UIAlertAction(title: UIAlertAction.cancel.title, style: UIAlertAction.cancel.style) { [weak self] _ in
             self?.tableView.indexPathForSelectedRow.map { self?.tableView.deselectRow(at: $0, animated: true) }
         })
-        alertController.addAction(UIAlertAction(title: NSLocalizedString("Clear Cache", comment: ""), style: .destructive) { [weak self] _ in
+        alertController.addAction(UIAlertAction(title: NSLocalizedString("Vider le cache", comment: ""), style: .destructive) { [weak self] _ in
             AppManager.shared.clearAppCache { result in
                 DispatchQueue.main.async {
                     self?.tableView.indexPathForSelectedRow.map { self?.tableView.deselectRow(at: $0, animated: true) }

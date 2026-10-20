@@ -136,21 +136,21 @@ struct VerificationError: ALTLocalizedError
             let deviceOSVersion = self.deviceOSVersion ?? ProcessInfo.processInfo.operatingSystemVersion
             
             guard let requiredOSVersion else {
-                return String(format: NSLocalizedString("%@ does not support iOS %@.", comment: ""), appName, deviceOSVersion.stringValue)
+                return String(format: NSLocalizedString("%@ ne prend pas en charge iOS %@.", comment: ""), appName, deviceOSVersion.stringValue)
             }
             
             if deviceOSVersion > requiredOSVersion
             {
                 // Device OS version is higher than maximum supported OS version.
                 
-                let failureReason = String(format: NSLocalizedString("%@ requires iOS %@ or earlier.", comment: ""), appName, requiredOSVersion.stringValue)
+                let failureReason = String(format: NSLocalizedString("%@ nécessite iOS %@ ou une version antérieure.", comment: ""), appName, requiredOSVersion.stringValue)
                 return failureReason
             }
             else
             {
                 // Device OS version is lower than minimum supported OS version.
                 
-                let failureReason = String(format: NSLocalizedString("%@ requires iOS %@ or later.", comment: ""), appName, requiredOSVersion.stringValue)
+                let failureReason = String(format: NSLocalizedString("%@ nécessite iOS %@ ou une version ultérieure.", comment: ""), appName, requiredOSVersion.stringValue)
                 return failureReason
             }
             

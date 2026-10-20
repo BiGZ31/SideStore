@@ -66,7 +66,7 @@ class ImportAccountAlertController: UIAlertController {
         let alertVC = ImportAccountAlertViewController()
         alert.setValue(alertVC, forKey: "contentViewController")
         
-        let importAction = UIAlertAction(title: NSLocalizedString("Import", comment: ""), style: .default) { [weak presentingViewController, weak alertVC] _ in
+        let importAction = UIAlertAction(title: NSLocalizedString("Importer", comment: ""), style: .default) { [weak presentingViewController, weak alertVC] _ in
             guard let presentingVC = presentingViewController,
                   let password = alertVC?.passwordTextField.text,
                   !password.isEmpty else { return }
@@ -90,7 +90,7 @@ class ImportAccountAlertController: UIAlertController {
             }
         }
         
-        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel)
+        let cancelAction = UIAlertAction(title: NSLocalizedString("Annuler", comment: ""), style: .cancel)
         alert.addAction(importAction)
         alert.addAction(cancelAction)
         

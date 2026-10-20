@@ -48,7 +48,7 @@ public struct MergeError: ALTLocalizedError
                 appName = name + " (\(bundleID))"
             }
             
-            return String(format: NSLocalizedString("%@ does not have any app versions.", comment: ""), appName)
+            return String(format: NSLocalizedString("%@ n'a aucune version d'app.", comment: ""), appName)
             
         case .incorrectVersionOrder:
             var appName = NSLocalizedString("one or more apps", comment: "")
@@ -73,7 +73,7 @@ public struct MergeError: ALTLocalizedError
     public var recoverySuggestion: String? {
         switch self.code
         {
-        case .incorrectVersionOrder: return NSLocalizedString("Please try again later.", comment: "")
+        case .incorrectVersionOrder: return NSLocalizedString("Réessaie plus tard.", comment: "")
         default: return nil
         }
     }

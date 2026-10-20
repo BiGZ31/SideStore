@@ -896,7 +896,7 @@ extension AddSourceViewController: UICollectionViewDelegateFlowLayout
             let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: kind, for: indexPath) as! UICollectionViewListCell
             
             var configuation = UIListContentConfiguration.groupedHeader()
-            configuation.text = NSLocalizedString("Recommended Sources", comment: "")
+            configuation.text = NSLocalizedString("Sources recommandées", comment: "")
             configuation.textProperties.color = .secondaryLabel
             
             headerView.contentConfiguration = configuation

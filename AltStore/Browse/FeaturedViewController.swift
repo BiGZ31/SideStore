@@ -66,7 +66,7 @@ class FeaturedViewController: UICollectionViewController
     {
         super.viewDidLoad()
         
-        self.title = NSLocalizedString("Browse", comment: "")
+        self.title = NSLocalizedString("Parcourir", comment: "")
         
         let layout = Self.makeLayout()
         self.collectionView.collectionViewLayout = layout
@@ -598,9 +598,9 @@ extension FeaturedViewController
             
             switch section
             {
-            case .recentlyUpdated: content.text = NSLocalizedString("New & Updated", comment: "")
-            case .categories: content.text = NSLocalizedString("Categories", comment: "")
-            case .featuredHeader: content.text = NSLocalizedString("Featured", comment: "")
+            case .recentlyUpdated: content.text = NSLocalizedString("Nouveautés et mises à jour", comment: "")
+            case .categories: content.text = NSLocalizedString("Catégories", comment: "")
+            case .featuredHeader: content.text = NSLocalizedString("À la une", comment: "")
             default: break
             }
             
@@ -618,7 +618,7 @@ extension FeaturedViewController
             
             buttonView.tintColor = storeApp.source?.effectiveTintColor?.adjustedForDisplay ?? .altPrimary
             
-            buttonView.button.setTitle(NSLocalizedString("See All", comment: ""), for: .normal)
+            buttonView.button.setTitle(NSLocalizedString("Tout voir", comment: ""), for: .normal)
             let font = UIFont.preferredFont(forTextStyle: .body)
             var config = UIButton.Configuration.plain()
             config.cornerStyle = .fixed

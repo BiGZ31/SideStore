@@ -19,9 +19,9 @@ public enum AppSorting: String, CaseIterable
         switch self
         {
         case .default: return NSLocalizedString("Default", comment: "")
-        case .name: return NSLocalizedString("Name", comment: "")
+        case .name: return NSLocalizedString("Nom", comment: "")
         case .developer: return NSLocalizedString("Developer", comment: "")
-        case .lastUpdated: return NSLocalizedString("Last Updated", comment: "")
+        case .lastUpdated: return NSLocalizedString("Dernière mise à jour", comment: "")
         }
     }
     

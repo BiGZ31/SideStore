@@ -63,7 +63,7 @@ public final class TVWebFileTransferManager: @unchecked Sendable {
                 message: NSLocalizedString("Open this URL on your iPhone, iPad, or Mac on the same Wi-Fi network to upload:\n\n\(serverURL)", comment: ""),
                 preferredStyle: .alert
             )
-            alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { [weak self] _ in
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Annuler", comment: ""), style: .cancel) { [weak self] _ in
                 self?.stop()
                 completion(nil)
             })
@@ -94,7 +94,7 @@ public final class TVWebFileTransferManager: @unchecked Sendable {
                 message: NSLocalizedString("Open this URL on your iPhone, iPad, or Mac on the same Wi-Fi network to download '\(fileURL.lastPathComponent)':\n\n\(serverURL)", comment: ""),
                 preferredStyle: .alert
             )
-            alert.addAction(UIAlertAction(title: NSLocalizedString("Done", comment: ""), style: .default) { [weak self] _ in
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Terminé", comment: ""), style: .default) { [weak self] _ in
                 self?.stop()
                 completion?()
             })

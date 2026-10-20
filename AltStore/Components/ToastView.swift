@@ -127,7 +127,7 @@ class ToastView: UIControl
         let error = error as NSError
         let mode = mode == .fullError ? ErrorProcessing.InfoMode.fullError : ErrorProcessing.InfoMode.localizedDescription
 
-        let text = error.localizedTitle ?? NSLocalizedString("Operation Failed", comment: "")
+        let text = error.localizedTitle ?? NSLocalizedString("Opération échouée", comment: "")
         let detailText = ErrorProcessing(mode).getDescription(error: error)
 
         self.init(text: text, detailText: detailText)

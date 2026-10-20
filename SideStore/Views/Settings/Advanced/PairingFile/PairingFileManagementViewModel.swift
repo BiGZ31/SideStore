@@ -165,7 +165,7 @@ public final class PairingFileManagementViewModel: ObservableObject {
         })
 
         alert.addAction(UIAlertAction(
-            title: NSLocalizedString("Cancel", comment: ""),
+            title: NSLocalizedString("Annuler", comment: ""),
             style: .cancel
         ) { [weak self] _ in
             self?.targetImportMode = nil

@@ -223,7 +223,7 @@ final class SelectProfileViewController: UITableViewController {
                 self?.onSelectProfile?(profile)
             }
         }
-        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel)
+        let cancelAction = UIAlertAction(title: NSLocalizedString("Annuler", comment: ""), style: .cancel)
 
         confirmAlert.addAction(cancelAction)
         confirmAlert.addAction(setAction)

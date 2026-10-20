@@ -1041,7 +1041,7 @@ struct UserCustomizationsView: View {
         let contentVC = ResetAdiAlertViewController()
         alertController.setValue(contentVC, forKey: "contentViewController")
         
-        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: NSLocalizedString("Annuler", comment: ""), style: .cancel, handler: nil)
         let resetAction = UIAlertAction(title: NSLocalizedString("Reset & Sign Out", comment: ""), style: .destructive) { _ in
             let keepHeaders = contentVC.isKeepHeadersChecked
             Task {

@@ -25,12 +25,12 @@ public enum StoreCategory: String, CaseIterable
         {
         case .developer: NSLocalizedString("Developer", comment: "")
         case .entertainment: NSLocalizedString("Entertainment", comment: "")
-        case .games: NSLocalizedString("Games", comment: "")
+        case .games: NSLocalizedString("Jeux", comment: "")
         case .lifestyle: NSLocalizedString("Lifestyle", comment: "")
         case .photoAndVideo: NSLocalizedString("Photo & Video", comment: "")
         case .social: NSLocalizedString("Social", comment: "")
         case .utilities: NSLocalizedString("Utilities", comment: "")
-        case .other: NSLocalizedString("Other", comment: "")
+        case .other: NSLocalizedString("Autre", comment: "")
         }
     }
     

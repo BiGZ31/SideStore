@@ -133,7 +133,7 @@ final class AccountVerificationRow: InsetGroupTableViewCell {
             self.isSelectable = false
             
         case .actionRequired(let certMissing, let deviceUnregistered):
-            self.titleLabel.text = NSLocalizedString("Action Required", comment: "")
+            self.titleLabel.text = NSLocalizedString("Action requise", comment: "")
             self.titleLabel.textColor = .systemOrange
             
             let subtitle: String
@@ -208,18 +208,18 @@ extension AccountVerificationRow {
         
         let count = pendingItems.count
         let title = count == 1
-            ? NSLocalizedString("1 Pending Action", comment: "")
-            : String(format: NSLocalizedString("%d Pending Actions", comment: ""), count)
+            ? NSLocalizedString("1 action en attente", comment: "")
+            : String(format: NSLocalizedString("%d actions en attente", comment: ""), count)
         
         let bulletList = pendingItems.map { "• \($0)" }.joined(separator: "\n")
         let message = NSLocalizedString("The following action(s) from sign-in are required to complete account setup:\n\n\(bulletList)", comment: "")
         
         let confirmed = await withCheckedContinuation { continuation in
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { _ in
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Annuler", comment: ""), style: .cancel) { _ in
                 continuation.resume(returning: false)
             })
-            alert.addAction(UIAlertAction(title: NSLocalizedString("Continue", comment: ""), style: .default) { _ in
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Continuer", comment: ""), style: .default) { _ in
                 continuation.resume(returning: true)
             })
             presentingViewController.present(alert, animated: true)

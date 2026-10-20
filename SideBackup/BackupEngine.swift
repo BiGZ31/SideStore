@@ -48,7 +48,7 @@ struct BackupErrorLocalizer {
                 return NSLocalizedString("The AltStore app group could not be found.", comment: "")
             }
         case .randomError:
-            return NSLocalizedString("A random error occurred.", comment: "")
+            return NSLocalizedString("Une erreur est survenue.", comment: "")
         }
     }
 }

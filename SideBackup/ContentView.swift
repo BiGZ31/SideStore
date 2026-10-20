@@ -55,7 +55,7 @@ struct ContentView: View {
                     }
                     .padding(.horizontal, 16)
                 } else {
-                    Text(String(format: NSLocalizedString("%@ is inactive.", comment: ""),
+                    Text(String(format: NSLocalizedString("%@ est inactif.", comment: ""),
                                 Bundle.main.appName ?? NSLocalizedString("App", comment: "")))
                         .font(.title2)
                         .foregroundColor(Color("Text"))

@@ -121,7 +121,7 @@ final class LaunchViewController: UIViewController {
 
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         extraActions.forEach { alert.addAction($0) }
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Retry", comment: ""), style: .default) { _ in
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Réessayer", comment: ""), style: .default) { _ in
             Task { await retryCallback?() }
         })
         present(alert, animated: true)
@@ -175,9 +175,9 @@ final class LaunchViewController: UIViewController {
 
         didFinishLaunching = true
         
-        splashViewModel.updateStatus(NSLocalizedString("Loading apps…", comment: ""))
+        splashViewModel.updateStatus(NSLocalizedString("Chargement des apps…", comment: ""))
         await AppManager.shared.reconcileInstalledApps()
-        splashViewModel.updateStatus(NSLocalizedString("Updating sources…", comment: ""))
+        splashViewModel.updateStatus(NSLocalizedString("Mise à jour des sources…", comment: ""))
         AppManager.shared.updateAllSources { result in
             guard case .failure(let error) = result else { return }
             debugLog("Failed to update sources on launch. \(error.localizedDescription)")
@@ -190,7 +190,7 @@ final class LaunchViewController: UIViewController {
             toastView.show(in: self.destinationViewController!.selectedViewController ?? self.destinationViewController!)
         }
         updateKnownSources()
-        splashViewModel.updateStatus(NSLocalizedString("Almost there…", comment: ""))
+        splashViewModel.updateStatus(NSLocalizedString("Presque fini…", comment: ""))
 
         let elapsed = abs(startTime.timeIntervalSinceNow)
         let remaining = elapsed >= 1 ? 0 : 1 - elapsed

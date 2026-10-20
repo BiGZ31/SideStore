@@ -21,14 +21,14 @@ final class PairingViewController: NSObject {
             completion?(url)
             self.completion = nil
         }
-        let title = isRetry ? NSLocalizedString("Invalid Pairing File", comment: "") : NSLocalizedString("Pairing File", comment: "")
+        let title = isRetry ? NSLocalizedString("Invalid Pairing File", comment: "") : NSLocalizedString("Fichier de jumelage", comment: "")
         let message = isRetry
             ? NSLocalizedString("The selected pairing file is invalid or not usable. Please select a valid pairing file.", comment: "")
             : NSLocalizedString("Select the pairing file or select \"Help\" for help.", comment: "")
         
         let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
         alert.setMarkdownMessage(message)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Help", comment: ""), style: .default) { _ in
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Aide", comment: ""), style: .default) { _ in
             UIApplication.shared.open(AppConstants.URLs.pairingDocumentation)
             if completion == nil {
                 sleep(2); exit(0)
@@ -37,7 +37,7 @@ final class PairingViewController: NSObject {
             }
         })
         #if !os(tvOS)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Select File", comment: ""), style: .default) { _ in
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Choisir un fichier", comment: ""), style: .default) { _ in
             let picker = UIDocumentPickerViewController(forOpeningContentTypes: PairingFileManager.supportedContentTypes)
             picker.delegate = self
             picker.shouldShowFileExtensions = true
@@ -46,7 +46,7 @@ final class PairingViewController: NSObject {
         })
         #endif
         
-        let cancelTitle = isRetry ? NSLocalizedString("Skip", comment: "") : NSLocalizedString("Cancel", comment: "")
+        let cancelTitle = isRetry ? NSLocalizedString("Passer", comment: "") : NSLocalizedString("Annuler", comment: "")
         alert.addAction(UIAlertAction(title: cancelTitle, style: .cancel) { _ in
             if completion == nil {
                 self.showPairingWarningAndProceed(on: vc)
@@ -59,7 +59,7 @@ final class PairingViewController: NSObject {
 
     func showPairingWarningAndProceed(on vc: UIViewController) {
         let warningAlert = UIAlertController(
-            title: "⚠️ " + NSLocalizedString("Pairing Required", comment: ""),
+            title: "⚠️ " + NSLocalizedString("Jumelage requis", comment: ""),
             message: nil,
             preferredStyle: .alert
         )
@@ -91,10 +91,10 @@ final class PairingViewController: NSObject {
         alert.addAction(UIAlertAction(title: String(format: NSLocalizedString("Switch to %@", comment: ""), providedProtocol.rawValue), style: .default) { _ in
             onSwitch()
         })
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Choose Another File", comment: ""), style: .default) { _ in
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Choisir un autre fichier", comment: ""), style: .default) { _ in
             onChooseOther()
         })
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { _ in
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Annuler", comment: ""), style: .cancel) { _ in
             onCancel()
         })
         vc.present(alert, animated: true)
@@ -206,7 +206,7 @@ extension PairingViewController {
             self.completion = nil
         }
 
-        let title = isRetry ? NSLocalizedString("Invalid Pairing File", comment: "") : NSLocalizedString("Pairing File Required", comment: "")
+        let title = isRetry ? NSLocalizedString("Invalid Pairing File", comment: "") : NSLocalizedString("Fichier de jumelage requis", comment: "")
         TVWebFileTransferManager.shared.startImport(
             acceptedExtensions: AppConstants.Pairing.supportedExtensions,
             title: title,

@@ -307,8 +307,8 @@ struct CertificatesView: View {
         
         alertController.setValue(contentVC, forKey: "contentViewController")
         
-        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel, handler: nil)
-        let revokeAction = UIAlertAction(title: NSLocalizedString("Revoke", comment: ""), style: .destructive) { _ in
+        let cancelAction = UIAlertAction(title: NSLocalizedString("Annuler", comment: ""), style: .cancel, handler: nil)
+        let revokeAction = UIAlertAction(title: NSLocalizedString("Révoquer", comment: ""), style: .destructive) { _ in
             let keepLocal = contentVC.isKeepLocalChecked
             viewModel.revokeCertificate(cert, keepLocal: keepLocal, presentingViewController: presentingViewController)
         }

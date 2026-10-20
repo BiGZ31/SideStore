@@ -198,7 +198,7 @@ struct BackupAndRestoreView: View {
         let alertVC = ExportAccountAlertViewController()
         alert.setValue(alertVC, forKey: "contentViewController")
         
-        let exportAction = UIAlertAction(title: NSLocalizedString("Export", comment: ""), style: .default) { _ in
+        let exportAction = UIAlertAction(title: NSLocalizedString("Exporter", comment: ""), style: .default) { _ in
             let filePassword = alertVC.passwordTextField.text ?? ""
             let includeApplePassword = alertVC.isIncludePasswordChecked
             
@@ -223,7 +223,7 @@ struct BackupAndRestoreView: View {
             }
         }
         
-        let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel)
+        let cancelAction = UIAlertAction(title: NSLocalizedString("Annuler", comment: ""), style: .cancel)
         
         alert.addAction(exportAction)
         alert.addAction(cancelAction)

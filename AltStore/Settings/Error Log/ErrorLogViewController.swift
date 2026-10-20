@@ -129,7 +129,7 @@ private extension ErrorLogViewController
             
             let cell = cell as! ErrorLogTableViewCell
             cell.dateLabel.text = self.timeFormatter.string(from: loggedError.date)
-            cell.errorFailureLabel.text = loggedError.localizedFailure ?? NSLocalizedString("Operation Failed", comment: "")
+            cell.errorFailureLabel.text = loggedError.localizedFailure ?? NSLocalizedString("Opération échouée", comment: "")
             cell.errorCodeLabel.text = loggedError.error.localizedErrorCode
             
             let nsError = loggedError.error as NSError
@@ -374,7 +374,7 @@ extension ErrorLogViewController
         
         if Calendar.current.isDateInToday(loggedError.date)
         {
-            return NSLocalizedString("Today", comment: "")
+            return NSLocalizedString("Aujourd'hui", comment: "")
         }
         else
         {

@@ -134,7 +134,7 @@ class SignInFlowHandler: AnyObject, SignInHandler, AnisetteServerHandler {
 
         case .trustedDevice:
             return try await promptCodeEntry(
-                title: NSLocalizedString("Please enter the 6-digit verification code that was sent to your Apple devices.", comment: ""),
+                title: NSLocalizedString("Entre le code de vérification à 6 chiffres envoyé sur tes appareils Apple.", comment: ""),
                 phoneNumbers: [],
                 activePhoneID: "",
                 currentDeliveryMode: nil,
@@ -145,9 +145,9 @@ class SignInFlowHandler: AnyObject, SignInHandler, AnisetteServerHandler {
             let activePhone = phoneNumbers.first(where: { $0.id == activeID })
             let title: String
             if let activePhone, !activePhone.number.isEmpty {
-                title = String(format: NSLocalizedString("Please enter the 6-digit verification code sent via SMS to %@.", comment: ""), activePhone.number)
+                title = String(format: NSLocalizedString("Entre le code de vérification à 6 chiffres envoyé par SMS au %@.", comment: ""), activePhone.number)
             } else {
-                title = NSLocalizedString("Please enter the 6-digit verification code sent via SMS to your phone.", comment: "")
+                title = NSLocalizedString("Entre le code de vérification à 6 chiffres envoyé par SMS sur ton téléphone.", comment: "")
             }
             return try await promptCodeEntry(
                 title: title,
@@ -184,7 +184,7 @@ class SignInFlowHandler: AnyObject, SignInHandler, AnisetteServerHandler {
                 preferredStyle: .alert
             )
             
-            alert.addAction(UIAlertAction(title: NSLocalizedString("Retry", comment: ""), style: .default) { _ in
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Réessayer", comment: ""), style: .default) { _ in
                 continuation.resume(returning: true)
             })
 
@@ -227,7 +227,7 @@ class SignInFlowHandler: AnyObject, SignInHandler, AnisetteServerHandler {
                 continuation.resume(returning: .cancel)
             })
 
-            alert.addAction(UIAlertAction(title: NSLocalizedString("Skip & Continue", comment: ""), style: .default) { _ in
+            alert.addAction(UIAlertAction(title: NSLocalizedString("Passer et continuer", comment: ""), style: .default) { _ in
                 continuation.resume(returning: .proceed)
             })
 
@@ -260,7 +260,7 @@ class SignInFlowHandler: AnyObject, SignInHandler, AnisetteServerHandler {
                 }
             }
             
-            let submitAction = UIAlertAction(title: NSLocalizedString("Continue", comment: ""), style: .default) { _ in
+            let submitAction = UIAlertAction(title: NSLocalizedString("Continuer", comment: ""), style: .default) { _ in
                 if let observer = observer {
                     NotificationCenter.default.removeObserver(observer)
                 }
@@ -272,7 +272,7 @@ class SignInFlowHandler: AnyObject, SignInHandler, AnisetteServerHandler {
             alertController.addAction(submitAction)
 
             if isTrustedDevice {
-                let otherMethodsAction = UIAlertAction(title: NSLocalizedString("Other Options…", comment: ""), style: .default) { [weak self] _ in
+                let otherMethodsAction = UIAlertAction(title: NSLocalizedString("Autres options…", comment: ""), style: .default) { [weak self] _ in
                     if let observer = observer {
                         NotificationCenter.default.removeObserver(observer)
                     }
@@ -285,8 +285,8 @@ class SignInFlowHandler: AnyObject, SignInHandler, AnisetteServerHandler {
                 alertController.addAction(otherMethodsAction)
             } else if let mode = currentDeliveryMode {
                 let resendTitle = (mode == .sms)
-                    ? NSLocalizedString("Resend SMS", comment: "")
-                    : NSLocalizedString("Call Again", comment: "")
+                    ? NSLocalizedString("Renvoyer le SMS", comment: "")
+                    : NSLocalizedString("Rappeler", comment: "")
                 let resendAction = UIAlertAction(title: resendTitle, style: .default) { _ in
                     if let observer = observer {
                         NotificationCenter.default.removeObserver(observer)
@@ -300,7 +300,7 @@ class SignInFlowHandler: AnyObject, SignInHandler, AnisetteServerHandler {
                 }
                 alertController.addAction(resendAction)
 
-                let otherMethodsAction = UIAlertAction(title: NSLocalizedString("Other Options…", comment: ""), style: .default) { [weak self] _ in
+                let otherMethodsAction = UIAlertAction(title: NSLocalizedString("Autres options…", comment: ""), style: .default) { [weak self] _ in
                     if let observer = observer {
                         NotificationCenter.default.removeObserver(observer)
                     }
@@ -362,7 +362,7 @@ class SignInFlowHandler: AnyObject, SignInHandler, AnisetteServerHandler {
         let isSMSDefault = (preferredMode == .sms)
         let smsTitle = isSMSDefault
             ? NSLocalizedString("Text Message (SMS) (Recommended)", comment: "")
-            : NSLocalizedString("Text Message (SMS)", comment: "")
+            : NSLocalizedString("Message texte (SMS)", comment: "")
         let smsAction = UIAlertAction(title: smsTitle, style: .default) { [weak self] _ in
             guard let self = self else {
                 continuation.resume(returning: .cancel)
@@ -380,7 +380,7 @@ class SignInFlowHandler: AnyObject, SignInHandler, AnisetteServerHandler {
         let isVoiceDefault = (preferredMode == .voice)
         let voiceTitle = isVoiceDefault
             ? NSLocalizedString("Phone Call (Recommended)", comment: "")
-            : NSLocalizedString("Phone Call", comment: "")
+            : NSLocalizedString("Appel téléphonique", comment: "")
         let voiceAction = UIAlertAction(title: voiceTitle, style: .default) { [weak self] _ in
             guard let self = self else {
                 continuation.resume(returning: .cancel)
@@ -418,8 +418,8 @@ class SignInFlowHandler: AnyObject, SignInHandler, AnisetteServerHandler {
                                                  continuation: CheckedContinuation<TwoFactorResponse, Error>)
     {
         let alert = UIAlertController(
-            title: NSLocalizedString("Select Phone Number", comment: ""),
-            message: NSLocalizedString("Choose a phone number to receive your verification code:", comment: ""),
+            title: NSLocalizedString("Choisir le numéro", comment: ""),
+            message: NSLocalizedString("Choisis un numéro pour recevoir ton code de vérification :", comment: ""),
             preferredStyle: .alert
         )
 
@@ -460,10 +460,10 @@ class SignInFlowHandler: AnyObject, SignInHandler, AnisetteServerHandler {
             let revokeVC = RevokeCertificatesAlertViewController(certificates: certificates, teamType: teamType)
             alertController.setValue(revokeVC, forKey: "contentViewController")
             
-            let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { _ in
+            let cancelAction = UIAlertAction(title: NSLocalizedString("Annuler", comment: ""), style: .cancel) { _ in
                 if teamType == .free {
                     let warningAlert = UIAlertController(
-                        title: NSLocalizedString("Warning", comment: ""),
+                        title: NSLocalizedString("Avertissement", comment: ""),
                         message: NSLocalizedString("fucksubsStore cannot manage the existing certificate without owning its private key. The apps signed with the existing certificate will expire soon unless they are resigned and renewed explicitly by fucksubsStore.", comment: ""),
                         preferredStyle: .alert
                     )
@@ -567,7 +567,7 @@ class SignInFlowHandler: AnyObject, SignInHandler, AnisetteServerHandler {
             )
             
             if self.showsDoItLater {
-                let retryAction = UIAlertAction(title: NSLocalizedString("Retry", comment: ""), style: .default) { _ in
+                let retryAction = UIAlertAction(title: NSLocalizedString("Réessayer", comment: ""), style: .default) { _ in
                     alertController.dismiss(animated: true) {
                         continuation.resume(returning: .retry)
                     }
@@ -580,19 +580,19 @@ class SignInFlowHandler: AnyObject, SignInHandler, AnisetteServerHandler {
                 alertController.addAction(retryAction)
                 alertController.addAction(laterAction)
             } else {
-                let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { _ in
+                let cancelAction = UIAlertAction(title: NSLocalizedString("Annuler", comment: ""), style: .cancel) { _ in
                     alertController.dismiss(animated: true) {
                         continuation.resume(returning: .cancel)
                     }
                 }
                 
-                let skipAction = UIAlertAction(title: NSLocalizedString("Skip", comment: ""), style: .default) { _ in
+                let skipAction = UIAlertAction(title: NSLocalizedString("Passer", comment: ""), style: .default) { _ in
                     alertController.dismiss(animated: true) {
                         continuation.resume(returning: .skip)
                     }
                 }
                 
-                let retryAction = UIAlertAction(title: NSLocalizedString("Retry", comment: ""), style: .default) { _ in
+                let retryAction = UIAlertAction(title: NSLocalizedString("Réessayer", comment: ""), style: .default) { _ in
                     alertController.dismiss(animated: true) {
                         continuation.resume(returning: .retry)
                     }
@@ -617,7 +617,7 @@ class SignInFlowHandler: AnyObject, SignInHandler, AnisetteServerHandler {
             )
             
             if self.showsDoItLater {
-                let retryAction = UIAlertAction(title: NSLocalizedString("Retry", comment: ""), style: .default) { _ in
+                let retryAction = UIAlertAction(title: NSLocalizedString("Réessayer", comment: ""), style: .default) { _ in
                     alertController.dismiss(animated: true) {
                         continuation.resume(returning: .retry)
                     }
@@ -630,19 +630,19 @@ class SignInFlowHandler: AnyObject, SignInHandler, AnisetteServerHandler {
                 alertController.addAction(retryAction)
                 alertController.addAction(laterAction)
             } else {
-                let cancelAction = UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { _ in
+                let cancelAction = UIAlertAction(title: NSLocalizedString("Annuler", comment: ""), style: .cancel) { _ in
                     alertController.dismiss(animated: true) {
                         continuation.resume(returning: .cancel)
                     }
                 }
                 
-                let skipAction = UIAlertAction(title: NSLocalizedString("Skip", comment: ""), style: .default) { _ in
+                let skipAction = UIAlertAction(title: NSLocalizedString("Passer", comment: ""), style: .default) { _ in
                     alertController.dismiss(animated: true) {
                         continuation.resume(returning: .skip)
                     }
                 }
                 
-                let retryAction = UIAlertAction(title: NSLocalizedString("Retry", comment: ""), style: .default) { _ in
+                let retryAction = UIAlertAction(title: NSLocalizedString("Réessayer", comment: ""), style: .default) { _ in
                     alertController.dismiss(animated: true) {
                         continuation.resume(returning: .retry)
                     }

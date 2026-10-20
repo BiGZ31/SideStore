@@ -78,7 +78,7 @@ class ReviewPermissionsViewController: UICollectionViewController
         self.navigationItem.standardAppearance = appearance
         #endif
         
-        self.title = NSLocalizedString("Review Permissions", comment: "")
+        self.title = NSLocalizedString("Vérifier les autorisations", comment: "")
         
         let collectionViewLayout = self.makeLayout()
         self.collectionView.collectionViewLayout = collectionViewLayout
@@ -200,7 +200,7 @@ extension ReviewPermissionsViewController
                 }
                 
             case .unknown:
-                configuration.text = NSLocalizedString("Additional Permissions", comment: "")
+                configuration.text = NSLocalizedString("Autorisations supplémentaires", comment: "")
                 configuration.secondaryText = String(format: NSLocalizedString("These are permissions required by “%@” that fucksubsStore does not recognize. Make sure you understand them before continuing.", comment: ""), self.app.name)
                 
             case .approve: break
@@ -220,7 +220,7 @@ extension ReviewPermissionsViewController
             let cell = cell as! UICollectionViewListCell
             
             var config = cell.defaultContentConfiguration()
-            config.text = NSLocalizedString("Approve", comment: "")
+            config.text = NSLocalizedString("Approuver", comment: "")
             config.textProperties.color = .white
             config.textProperties.font = .preferredFont(forTextStyle: .headline)
             config.textProperties.alignment = .center

@@ -45,20 +45,20 @@ public enum InstallAppDialog {
         case .prompt:
             #if !os(tvOS)
             let alertController = UIAlertController(
-                title: NSLocalizedString("Install App", comment: ""),
+                title: NSLocalizedString("Installer l'app", comment: ""),
                 message: nil,
                 preferredStyle: .actionSheet
             )
             if let popover = alertController.popoverPresentationController {
                 popover.barButtonItem = barButtonItem
             }
-            alertController.addAction(UIAlertAction(title: NSLocalizedString("Choose from Files", comment: ""), style: .default) { _ in
+            alertController.addAction(UIAlertAction(title: NSLocalizedString("Choisir dans Fichiers", comment: ""), style: .default) { _ in
                 onChooseFiles()
             })
             #else
             let alertController = UIAlertController(
-                title: NSLocalizedString("Install App", comment: ""),
-                message: NSLocalizedString("Choose an installation method:", comment: ""),
+                title: NSLocalizedString("Installer l'app", comment: ""),
+                message: NSLocalizedString("Choisis une méthode d'installation :", comment: ""),
                 preferredStyle: .alert
             )
             alertController.addAction(UIAlertAction(title: NSLocalizedString("Upload via Web", comment: ""), style: .default) { _ in
@@ -66,10 +66,10 @@ public enum InstallAppDialog {
             })
             #endif
             
-            alertController.addAction(UIAlertAction(title: NSLocalizedString("Install from URL", comment: ""), style: .default) { _ in
+            alertController.addAction(UIAlertAction(title: NSLocalizedString("Installer depuis une URL", comment: ""), style: .default) { _ in
                 self.presentURLInputDialog(from: presentingVC, onConfirm: onConfirm)
             })
-            alertController.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel))
+            alertController.addAction(UIAlertAction(title: NSLocalizedString("Annuler", comment: ""), style: .cancel))
             
             presentingVC.present(alertController, animated: true)
 
@@ -86,7 +86,7 @@ public enum InstallAppDialog {
         onConfirm: @escaping (URL) -> Void
     ) {
         let alert = UIAlertController(
-            title: NSLocalizedString("Install from URL", comment: ""),
+            title: NSLocalizedString("Installer depuis une URL", comment: ""),
             message: NSLocalizedString("Enter the URL of the .ipa file to install.", comment: ""),
             preferredStyle: .alert
         )
@@ -99,15 +99,15 @@ public enum InstallAppDialog {
             textField.clearButtonMode = .whileEditing
         }
         
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel))
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Continue", comment: ""), style: .default) { _ in
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Annuler", comment: ""), style: .cancel))
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Continuer", comment: ""), style: .default) { _ in
             guard let text = alert.textFields?.first?.text?.trimmingCharacters(in: .whitespacesAndNewlines),
                   let url = URL(string: text),
                   let scheme = url.scheme?.lowercased(),
                   (scheme == "http" || scheme == "https") else {
                 let errorAlert = UIAlertController(
-                    title: NSLocalizedString("Invalid URL", comment: ""),
-                    message: NSLocalizedString("Please enter a valid HTTP or HTTPS URL.", comment: ""),
+                    title: NSLocalizedString("URL invalide", comment: ""),
+                    message: NSLocalizedString("Entre une URL HTTP ou HTTPS valide.", comment: ""),
                     preferredStyle: .alert
                 )
                 errorAlert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default))
@@ -193,15 +193,15 @@ public enum InstallAppDialog {
         }
         
         let alert = UIAlertController(
-            title: NSLocalizedString("Install App", comment: ""),
+            title: NSLocalizedString("Installer l'app", comment: ""),
             message: message,
             preferredStyle: .alert
         )
         
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Install", comment: ""), style: .default) { _ in
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Installer", comment: ""), style: .default) { _ in
             onConfirm()
         })
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Cancel", comment: ""), style: .cancel) { _ in
+        alert.addAction(UIAlertAction(title: NSLocalizedString("Annuler", comment: ""), style: .cancel) { _ in
             onCancel()
         })
         

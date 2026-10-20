@@ -53,12 +53,12 @@ private extension RefreshAttemptsViewController
             
             if attempt.isSuccess
             {
-                cell.successLabel.text = NSLocalizedString("Success", comment: "")
+                cell.successLabel.text = NSLocalizedString("Réussi", comment: "")
                 cell.successLabel.textColor = .refreshGreen
             }
             else
             {
-                cell.successLabel.text = NSLocalizedString("Failure", comment: "")
+                cell.successLabel.text = NSLocalizedString("Échec", comment: "")
                 cell.successLabel.textColor = .refreshRed
             }
         }

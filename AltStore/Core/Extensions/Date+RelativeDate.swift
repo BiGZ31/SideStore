@@ -40,8 +40,8 @@ public extension Date
         
         switch numberOfDays
         {
-        case 0: return NSLocalizedString("Today", comment: "")
-        case 1: return NSLocalizedString("Yesterday", comment: "")
+        case 0: return NSLocalizedString("Aujourd'hui", comment: "")
+        case 1: return NSLocalizedString("Hier", comment: "")
         default: return dateFormatter.string(from: date)
         }
     }

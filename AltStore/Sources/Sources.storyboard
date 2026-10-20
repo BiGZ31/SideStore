@@ -50,7 +50,7 @@
                             <outlet property="delegate" destination="Nhf-Gw-Ukx" id="rW6-a2-seQ"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="All Apps" id="rUb-ON-AON"/>
+                    <navigationItem key="navigationItem" title="Toutes les apps" id="rUb-ON-AON"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ih5-9R-QX7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -139,7 +139,7 @@
                             <outlet property="delegate" destination="MVH-oB-c8m" id="fcy-SK-PkD"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="All News" id="FGB-cd-Vkd"/>
+                    <navigationItem key="navigationItem" title="Toutes les actus" id="FGB-cd-Vkd"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7f5-vn-JrS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -218,7 +218,7 @@
                             <outlet property="delegate" destination="bbz-wy-kaK" id="RRO-hx-gbl"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Add Source" id="v46-dC-g7e">
+                    <navigationItem key="navigationItem" title="Ajouter une source" id="v46-dC-g7e">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ozl-rj-JhC">
                             <connections>
                                 <segue destination="qr8-ss-Ghz" kind="unwind" unwindAction="unwindFromAddSource:" id="Pba-Kh-qfH"/>
