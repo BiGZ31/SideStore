@@ -1035,7 +1035,7 @@ struct UserCustomizationsView: View {
         guard let top = UIApplication.shared.topViewController() else { return }
         let alertController = UIAlertController(
             title: NSLocalizedString("Reset adi.pb", comment: ""),
-            message: NSLocalizedString("This will sign you out of Apple ID in SideStore and clear the provisioned adi.pb data from your Keychain. Your active signing certificate will be preserved.", comment: ""),
+            message: NSLocalizedString("This will sign you out of Apple ID in fucksubsStore and clear the provisioned adi.pb data from your Keychain. Your active signing certificate will be preserved.", comment: ""),
             preferredStyle: .alert
         )
         let contentVC = ResetAdiAlertViewController()
