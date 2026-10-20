@@ -27,7 +27,12 @@ final class TabBarController: UITabBarController
     private var _viewDidAppear = false
     
     private var sourcesViewController: SourcesViewController!
-    
+    // fucksubs: index-independent refs so hiding the News tab can't break navigation.
+    private weak var sourcesNav: UIViewController?
+    private weak var browseNav: UIViewController?
+    private weak var myAppsNav: UIViewController?
+    private weak var settingsNav: UIViewController?
+
     required init?(coder aDecoder: NSCoder)
     {
         super.init(coder: aDecoder)
@@ -47,6 +52,20 @@ final class TabBarController: UITabBarController
         
         let sourcesNavigationController = self.viewControllers![Tab.sources.rawValue] as! UINavigationController
         self.sourcesViewController = sourcesNavigationController.viewControllers.first as? SourcesViewController
+
+        // fucksubs: keep references, hide the News tab, and open on Browse (our apps).
+        self.sourcesNav = sourcesNavigationController
+        self.browseNav = browseNavigationController
+        self.myAppsNav = self.viewControllers?[Tab.myApps.rawValue]
+        self.settingsNav = self.viewControllers?[Tab.settings.rawValue]
+        let newsNav = self.viewControllers?[Tab.news.rawValue]
+        if var vcs = self.viewControllers, let news = newsNav {
+            vcs.removeAll { $0 === news }
+            self.viewControllers = vcs
+        }
+        if let i = self.viewControllers?.firstIndex(where: { $0 === browseNavigationController }) {
+            self.selectedIndex = i
+        }
     }
     
     override func viewDidAppear(_ animated: Bool)
@@ -92,19 +111,26 @@ extension TabBarController
             self.sourcesViewController?.deepLinkSourceURL = sourceURL
         }
         
-        self.selectedIndex = Tab.sources.rawValue
+        self.select(self.sourcesNav)
     }
 }
 
 private extension TabBarController
 {
+    // fucksubs: select a tab by reference, so indices can change (News hidden) safely.
+    func select(_ vc: UIViewController?)
+    {
+        guard let vc = vc, let i = self.viewControllers?.firstIndex(where: { $0 === vc }) else { return }
+        self.selectedIndex = i
+    }
+
     @objc func importApp(_ notification: Notification)
     {
-        self.selectedIndex = Tab.myApps.rawValue
+        self.select(self.myAppsNav)
     }
 
     @objc func openErrorLog(_ notification: Notification)
     {
-        self.selectedIndex = Tab.settings.rawValue
+        self.select(self.settingsNav)
     }
 }

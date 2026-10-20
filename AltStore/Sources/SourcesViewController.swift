@@ -103,7 +103,11 @@ final class SourcesViewController: UICollectionViewController
         ])
 
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
-        
+
+        // fucksubs: hide the manual "+" add-source button so only our source shows. The website
+        // deep link still adds our source (this button was only its activity spinner, optional).
+        self.navigationItem.leftBarButtonItem = nil
+
         NotificationCenter.default.addObserver(self, selector: #selector(SourcesViewController.showInstallingAppToastView(_:)), name: AppManager.willInstallAppFromNewSourceNotification, object: nil)
         
         self.update()
